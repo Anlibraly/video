@@ -1,0 +1,483 @@
+@font-face {
+  font-family:playerIcons;
+  src:url("../images/bilibili.eot")
+}
+@font-face {
+  font-family:playerIcons;
+  src:url("../images/bilibili.ttf")
+}
+.player-icon {
+  display:inline-block;
+  font-family:playerIcons;
+  line-height:1;
+  font-weight:normal;
+  font-style:normal;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+.player-icon.icon-play:before {
+  content:'A';
+  color:#de698c
+}
+.player-icon.icon-repeat:before {
+  content:'C'
+}
+.player-icon.icon-fullscreen:before {
+  content:'E'
+}
+.player-icon.icon-pause:before {
+  content:'F';
+  color:#de698c
+}
+.player-icon.icon-mute:before {
+  content:'G'
+}
+.player-icon.icon-unmute:before {
+  content:'H'
+}
+.player-icon.icon-preview:before {
+  content:''
+}
+.player-icon.icon-share:before {
+  content:'K'
+}
+.player-icon.icon-comment,.player-icon.icon-widescreen {
+  content:'';
+  display:block;
+  background:transparent url("../mobile/img/ui_2.png") no-repeat;
+  background-size:400px
+}
+.player-icon.icon-comment.icon-comment,.player-icon.icon-widescreen.icon-comment {
+  background-position:-98px -355px
+}
+.player-icon.icon-comment.icon-widescreen,.player-icon.icon-widescreen.icon-widescreen {
+  background-position:-66px -323px
+}
+.active>.player-icon.icon-comment {
+  background-position:-98px -322px
+}
+.player-container {
+  position:relative;
+  display:inline-block;
+  width:100%;
+  height:100%
+}
+.player-container .dummy {
+  margin-top:62.5%
+}
+.player-container .player-box {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden
+}
+.player-container .player-box.wide {
+  position:fixed;
+  width:auto;
+  height:auto
+}
+.player-container .player-box.full {
+  padding-bottom:0
+}
+.player-container .player-box.full .comment-layer {
+  bottom:0
+}
+.player-container .player-box video {
+  background-color:black;
+  display:none
+}
+.player-container .player-box .display {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+.player-container .player-box .display .control-bar {
+  position:absolute;
+  z-index:2;
+  bottom:0;
+  left:0;
+  right:0;
+  height:28pt;
+  border-width:0;
+  border-style:solid;
+  border-color:#e2e2e2;
+  background-color:rgba(0,0,0,0.5);
+  font-size:0;
+  text-align:left;
+  opacity:1
+}
+.player-container .player-box .display .control-bar.hide {
+  visibility:hidden;
+  opacity:0
+}
+.player-container .player-box .display .control-bar>* {
+  font-size:1rem;
+  display:inline-block
+}
+.player-container .player-box .display .control-bar.ipad .control-slider {
+  right:108pt
+}
+.player-container .player-box .display .control-bar .control-btn {
+  height:28pt;
+  text-align:center;
+  vertical-align:top;
+  background-color:transparent;
+  color:#585858;
+  width:22pt;
+  margin:0 7pt
+}
+.player-container .player-box .display .control-bar .control-btn i {
+  list-style:none;
+  cursor:default;
+  height:100%
+}
+.player-container .player-box .display .control-bar .control-btn i:before {
+  line-height:28pt;
+  display:inline-block;
+  height:100%;
+  font-size:24pt
+}
+.player-container .player-box .display .control-bar .control-btn.btn-play,.player-container .player-box .display .control-bar .control-btn.btn-pause {
+  width:40pt;
+  display:none
+}
+.player-container .player-box .display .control-bar .control-btn.hide {
+  display:none
+}
+.player-container .player-box .display .control-bar .control-btn.active {
+  color:#ccc
+}
+.player-container .player-box .display .control-bar .control-split {
+  height:100%;
+  width:1pt;
+  margin:0;
+  padding:0;
+  background-color:#e2e2e2
+}
+.player-container .player-box .display .control-bar .control-time-split:before {
+  content:"/";
+  margin:0 1pt
+}
+.player-container .player-box .display .control-bar .time-container {
+  position:absolute;
+  left:0;
+  height:28pt;
+  bottom:0
+}
+.player-container .player-box .display .control-bar .time-container .control-text,.player-container .player-box .display .control-bar .time-container .control-time-split {
+  font-size:10pt;
+  font-family:arial,sans-serif;
+  color:#fff;
+  height:100%;
+  line-height:31pt;
+  vertical-align:top;
+  float:left
+}
+.player-container .player-box .display .control-bar .time-container .control-time-split {
+  width:5pt
+}
+.player-container .player-box .display .control-bar .time-container .control-text {
+  width:32pt
+}
+.player-container .player-box .display .control-bar .time-container .control-text.time-current-text {
+  text-align:right
+}
+.player-container .player-box .display .control-bar .time-container .control-text.time-total-text {
+  text-align:left
+}
+.player-container .player-box .display .control-bar .time-container .time-total-text:after,.player-container .player-box .display .control-bar .time-container .time-current-text:before {
+  width:2pt;
+  content:"";
+  display:inline-block
+}
+.player-container .player-box .display .control-bar>.right {
+  height:100%;
+  float:right;
+  font-size:0;
+  cursor:default
+}
+.player-container .player-box .display .control-bar>.right>* {
+  font-size:1rem;
+  display:inline-block
+}
+.player-container .player-box .display .control-bar .control-volume-slider {
+  display:inline-block;
+  width:40pt;
+  height:28pt;
+  position:relative
+}
+.player-container .player-box .display .control-bar .control-volume-slider.hide {
+  display:none
+}
+.player-container .player-box .display .control-bar .control-volume-slider.mute .ui-slider-thumb {
+  background-color:#949494
+}
+.player-container .player-box .display .control-bar .control-volume-slider .ui-slider-container {
+  top:11.5pt;
+  right:5pt;
+  left:0;
+  height:5pt
+}
+.player-container .player-box .display .control-bar .control-volume-slider .ui-slider-thumb {
+  background-color:#00a1d6;
+  border-radius:3pt
+}
+.player-container .player-box .display .control-bar .control-volume-slider .ui-slider-thumb:after {
+  width:0;
+  height:5pt;
+  right:0;
+  border-radius:3pt
+}
+.player-container .player-box .display .control-bar .control-volume-slider .ui-slider-tracker {
+  right:0;
+  background-color:#949494;
+  border-radius:3pt
+}
+.player-container .player-box .display .control-bar .control-volume-slider .ui-slider-label {
+  display:none
+}
+.player-container .player-box .display .control-bar .control-volume-slider .ui-slider-event-layer {
+  right:0
+}
+.player-container .player-box .display .control-bar .control-slider {
+  position:absolute;
+  bottom:11pt;
+  left:70pt;
+  right:72pt;
+  width:auto;
+  height:3pt
+}
+.player-container .player-box .display .control-bar .control-slider .ui-slider-container {
+  position:absolute;
+  height:100%;
+  left:0;
+  right:7pt;
+  width:auto;
+  box-shadow:none;
+  border-radius:0;
+  background-color:rgba(0,0,0,0)
+}
+.player-container .player-box .display .control-bar .control-slider .ui-slider-label {
+  display:none
+}
+.player-container .player-box .display .control-bar .control-slider .ui-slider-thumb {
+  top:0;
+  bottom:0;
+  left:0;
+  height:auto;
+  -webkit-transform:translate3d(0,0,0);
+  -moz-transform:translate3d(0,0,0);
+  -ms-transform:translate3d(0,0,0);
+  transform:translate3d(0,0,0);
+  border-radius:0;
+  box-shadow:none;
+  background-color:#de698c
+}
+.player-container .player-box .display .control-bar .control-slider .ui-slider-thumb:after {
+  content:'';
+  position:absolute;
+  display:block;
+  right:-9pt;
+  top:-4pt;
+  width:9pt;
+  height:9pt;
+  border-radius:9pt;
+  box-shadow:none;
+  background-color:transparent
+}
+.player-container .player-box .display .control-bar .control-slider .ui-slider-event-layer {
+  top:-4pt;
+  bottom:-1pt;
+  left:0;
+  right:-7pt;
+  width:auto;
+  height:auto
+}
+.player-container .player-box .display .control-bar .control-slider .ui-slider-tracker {
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  width:auto;
+  height:auto;
+  border-style:none;
+  box-shadow:none;
+  background:#4c4c4c
+}
+.player-container .player-box .display .input-bar {
+  position:absolute;
+  display:none;
+  z-index:2;
+  top:0;
+  left:0;
+  right:0;
+  height:40pt;
+  background:rgba(255,255,255,0.6)
+}
+.player-container .player-box .display .input-bar.hide {
+  display:none
+}
+.player-container .player-box .display .input-bar .text-input {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width:78%;
+  margin:5pt;
+  border-style:none;
+  border-width:0;
+  font-size:14pt;
+  line-height:14pt
+}
+.player-container .player-box .display .input-bar .text-input:focus {
+  outline-offset:0
+}
+.player-container .player-box .display .input-bar .send-btn {
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  width:20%;
+  margin:5pt;
+  border:0 none #fff;
+  background-color:#0ad;
+  color:#fff;
+  font-size:14pt;
+  line-height:14pt;
+  font-weight:bold
+}
+.player-container .player-box .display .comment-layer {
+  position:absolute;
+  z-index:1;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  pointer-events:none;
+  overflow:hidden
+}
+.player-container .player-box .display .load-layer {
+  display:block;
+  position:absolute;
+  z-index:3;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:rgba(60,60,60,0.5);
+  overflow:hidden;
+  cursor:pointer;
+  text-align:center
+}
+.player-container .player-box .display .load-layer.hide {
+  display:none
+}
+.player-container .player-box .display .load-layer>img {
+  border-style:none;
+  display:inline-block;
+  position:relative;
+  width:100%;
+  height:100%;
+  opacity:.85;
+  margin:0;
+  padding:0
+}
+.player-container .player-box .display .load-layer>i {
+  position:absolute;
+  display:block;
+  bottom:27pt;
+  right:7pt;
+  width:58pt;
+  height:55pt;
+  background:transparent url('../mobile/img/ui_2.png') no-repeat -90px -265px;
+  background-size:400pt
+}
+.player-container .player-box .display .state-icon {
+  position:absolute;
+  display:block;
+  opacity:.85;
+  bottom:27pt;
+  right:7pt;
+  margin-left:-29pt;
+  margin-top:-29pt;
+  width:58pt;
+  height:58pt;
+  z-index:2
+}
+.player-container .player-box .display .state-icon.hide {
+  display:none
+}
+.player-container .player-box .display .state-icon i {
+  font-family:playerIcons;
+  font-style:normal;
+  font-weight:normal;
+  line-height:58pt;
+  text-align:center;
+  color:#FFF;
+  font-size:80pt;
+  list-style:none;
+  display:none;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0
+}
+.player-container .player-box .display .state-icon i.buff-icon {
+  background-repeat:no-repeat;
+  background-image:url('../images/loading.gif');
+  background-position:17pt 17pt
+}
+.player-container .player-box .display .state-icon i.pause-icon {
+  background-repeat:no-repeat;
+  background:transparent url('../mobile/img/ui_2.png') no-repeat -90px -265px;
+  background-size:400pt
+}
+.player-container .player-box .display .state-icon i.play-icon {
+  background-repeat:no-repeat;
+  background:transparent url('../mobile/img/ui_2.png') no-repeat -90px -354px;
+  background-size:400pt
+}
+.player-container .player-box .display .state-icon i.active {
+  display:block
+}
+.player-container .controls-simple {
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:30px;
+  background-color:white;
+  display:table
+}
+.player-container .controls-simple .mukio-control {
+  display:table-cell;
+  vertical-align:middle
+}
+.player-container .controls-simple .mukio-control .control {
+  display:inline-block;
+  font-size:14px;
+  line-height:18px;
+  color:white;
+  background-color:#5abcf7;
+  border-style:solid;
+  border-width:1px;
+  border-color:white;
+  border-radius:5px
+}
+.player-container .controls-simple .mukio-control .control:active {
+  border-color:#ccc
+}
+.player-container .controls-simple .mukio-control .style-panel {
+  top:30px;
+  display:none;
+  position:absolute
+}

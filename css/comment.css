@@ -1,0 +1,137 @@
+body{
+    text-align: left;
+    background: #f6f6f6;
+    color: #2a2a2a;	
+}
+
+.comment{
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+    background: #ffffff;
+    font-size: 16px;
+    color: #2a2a2a;   
+    border-bottom: 1px solid #eee; 
+}
+[data-dpr="2"] .comment{
+    font-size: 32px;
+}
+[data-dpr="3"] .comment{
+    font-size: 48px;
+}
+
+#postComment{
+	padding: 0.44rem 3.1%;
+    text-align: right;
+}
+#postComment textarea{
+	height: 4rem;
+    width: 100%;
+    border: 1px solid #d1d1d1;
+    font-size: 16px;
+    line-height: 0.833rem;
+    -webkit-appearance: none;
+    border-radius: 0;
+    background: #ededed;
+    border-radius: 2px;
+    margin-bottom: 0.14rem;
+}
+[data-dpr="2"] #postComment textarea{
+    font-size: 32px;
+}
+[data-dpr="3"] #postComment textarea{
+    font-size: 48px;
+}
+
+#postComment .inputBtn{
+	height: 2rem;
+    line-height: 0.667rem;
+    width: 17%;
+    font-size: 14px;
+    color: #515151;
+    border: 1px solid #e5e5e5;
+    background: #eee;
+    border-radius: 2px;
+}
+[data-dpr="2"] #postComment .inputBtn{
+    font-size: 31px;
+}
+[data-dpr="3"] #postComment .inputBtn{
+    font-size: 42px;   
+}
+
+#commentList>div {
+    padding: 0.222rem 3.1%;
+    line-height: 0.611rem;
+    color: #000;
+    overflow: hidden;
+}
+
+#commentList .clearfix {
+    margin-top: 0.0833rem;
+    margin-bottom: 0.111rem;
+}
+.clearfix:after {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    content: ".";
+}
+#commentList .author{
+    color: #5191d2;
+    font-size: 14px;
+}
+[data-dpr="2"] #commentList .author{
+    font-size: 28px;
+}
+[data-dpr="3"] #commentList .author{
+    font-size: 42px;
+}
+
+#commentList .rt {
+	float: right;
+}
+#commentList span {
+    font-size: 13px;
+    color: #999;
+}
+[data-dpr="2"] #commentList span{
+    font-size: 26px;
+}
+[data-dpr="3"] #commentList span{
+    font-size: 39px;
+}
+
+#commentList p {
+    margin-top: 0.1111rem;
+    font-size: 16px;
+}
+[data-dpr="2"] #commentList p{
+    font-size: 32px;
+}
+[data-dpr="3"] #commentList p{
+    font-size: 48px;
+}
+
+.pageBtn {
+    margin-bottom: 0.222rem;
+}
+.pageBtn, .pageBtn:visited {
+    margin: 0.167rem auto 0.417rem auto;
+    height: 0.944rem;
+    width: 93.8%;
+    text-align: center;
+    line-height: 0.944rem;
+    font-size: 15px;
+    background: #ECECEC;
+    border-radius: 3px;
+    color: #515151;
+}
+[data-dpr="2"] .pageBtn, .pageBtn:visited{
+    font-size: 30px;
+}
+[data-dpr="3"] .pageBtn, .pageBtn:visited{
+    font-size: 45px;
+}
