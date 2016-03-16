@@ -175,13 +175,23 @@ h2, h3 {
   background: url(../img/ui_2.png) center no-repeat;
   background-size: 400px;
 }
-
-.auto .icons.icons-span {
-  display: none;
-  width: 24px;
-  height: 12px;
-  vertical-align: top;
-  background-position: -135px -191px;
+.video-info-span .icons.icons-span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.downs {
+    display: none;
+    width: 24px;
+    height: 12px;
+    vertical-align: top;
+    background-position: -135px -157px;
+}
+.ups {
+    display: none;
+    width: 24px;
+    height: 12px;
+    vertical-align: top;
+    background-position: -135px -191px;
 }
 
 .icons.icons-share-gray {
@@ -190,7 +200,12 @@ h2, h3 {
   vertical-align: top;
   background-position: -251px -100px;
 }
-
+.icons.icons-addFav.on{
+    width: 24px;
+    height: 24px;
+    vertical-align: top;
+    background-position: -285px -33px;
+}
 .icons.icons-addFav {
   width: 24px;
   height: 24px;
@@ -456,6 +471,7 @@ h2, h3 {
   border: 1px solid #ccc;
   box-sizing: border-box;
   width: 40px;
+  margin-right: 5px;
 }
 
 .part-lst .lst li.on {
@@ -489,11 +505,11 @@ h2, h3 {
   width: 100%;
 }
 
-.part-lst .lst li:nth-child(n+5) {
+.part-lst .lst li:nth-child(n+9) {
   display: none;
 }
 
-.part-lst .lst.initialized li:nth-child(n+5) {
+.part-lst .lst.initialized li:nth-child(n+9) {
   display: block;
 }
 
@@ -766,4 +782,12 @@ footer {
   height: 20px;
   background-position: -210px -109px;
   margin-right: 5px;
+}
+.uptime {
+    float: right;
+    line-height: 1.7rem;
+    color: #aaa;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: left;
 }

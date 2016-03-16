@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myVideo">
 	<head>
 		<title>新闻视频</title>
 		<meta charset="UTF-8">
@@ -12,13 +12,38 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+        <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js"></script>
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+        <script type="text/javascript" src="js/swiper.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/av-mini.js"></script>
+        <script src="js/video.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                var u = 0;
+                $(".explore").hide();
+                $(".video-info-span").click(function(){
+                    $(".explore").slideToggle("slow");
+                    if(u==0){
+                        $(".icons-span").removeClass("downs");
+                        $(".icons-span").addClass("ups");
+                        u = 1;
+                    }else{
+                        $(".icons-span").removeClass("ups");
+                        $(".icons-span").addClass("downs");
+                        u = 0;
+                    }
+                });        
+            });
+        </script>          
         <link rel="icon" type="image/vnd.microsoft.icon" href="img/logo.middle.png">
         <link href="css/normalize.css" rel="stylesheet">
         <link href="css/aware.video.css" rel="stylesheet">
         <link href="css/comment.css" rel="stylesheet">
 	</head>
 
-    <body>
+    <body ng-controller="video">
         <!-- 头部 -->
         <nav class="nav-bar">
             <a href="./index.html" class="logo"></a>
@@ -29,9 +54,6 @@
                 <link type="text/css" href="css/play_box.css" rel="stylesheet">
                 <div class="player-container">
                     <div class="player-box">
-                        <video width="100%" height="100%" controls="" name="media" style="display: inline-block;">
-                            <source src="http://ac-jwqtrdh9.clouddn.com/b0db4e8dedbde0113545.mp4" type="video/mp4">
-                        </video>
                     </div>
                 </div>
             </div>
@@ -39,46 +61,59 @@
             <div id="video-opt" style="text-align: right;">
                 <span class="control-btn btn-share">
                     <i class="icons icons-share-gray"></i>
-                    <span>分享</span>
+                    <span class="-mob-share-open">分享</span>
+                    <!--MOB SHARE BEGIN-->
+
+                    <div class="-mob-share-ui" style="display: none">
+                        <ul class="-mob-share-list">
+                            <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                            <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+                            <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                            <li class="-mob-share-qq"><p>QQ好友</p></li>
+                            <li class="-mob-share-weixin"><p>微信</p></li>
+                            <li class="-mob-share-douban"><p>豆瓣</p></li>
+                            <li class="-mob-share-renren"><p>人人网</p></li>
+                        </ul>
+                        <div class="-mob-share-close">取消</div>
+                    </div>
+                    <div class="-mob-share-ui-bg"></div>
+                   
+                    <!--MOB SHARE END-->
+
+                        
                 </span>
-                <span class="control-btn btn-addFav">
+                <span class="control-btn btn-addFav" ng-click="zan()">
                     <i class="icons icons-addFav"></i>
-                    <span>收藏</span>
+                    <span>点赞</span>
                 </span>
-                <span class="control-btn btn-download" href="javascript:void(0);" target="_self">
-                    <i class="icons icons-download"></i>
-                    <span>下载</span>
-                </span>
+
             </div> 
             <!-- 视频信息栏 -->
             <div class="video-info clearfix auto">
                 <div class="video-info-detail">
-                    <h1 class="video-title" title="测试视频">测试视频</h1>
-                    <div class="video-desc">
-                        天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏天机不可泄漏泄漏
+                    <div class="explore">
+                        <h1 class="video-title" title="{{video.title}}">{{video.title}}</h1>
+                        <div class="video-desc">{{video.desc}}</div>
                     </div>   
                     <ul class="ct clearfix">
-                        <li>播放：<span id="dianji">107817</span></li>
-                        <li>弹幕：<span id="dm_count">507</span></li>
-                        <li>收藏：<span id="stow_count">224</span></li>
-                        <li><span class="up-time">2015-09-14 12:38:05</span></li>
+                        <li>播放：<span id="dianji">{{video.view_num}}</span></li>
+                        <li>点赞：<span id="stow_count">{{video.zan_num}}</span></li>
+                        <li><span class="up-time">{{video.uptime}}</span></li>
                     </ul>
                 </div>
-                <div class="video-info-span"><i class="icons icons-span"></i></div>
+                <div class="video-info-span"><i class="icons icons-span downs"></i></div>
             </div> 
             <!-- 选集块 -->
-            <div class="part-lst" id="part_list" title="测试视频" total_page="30">
-                <ul class="lst unselectable initialized">
-                    <li page="1" class="on"><a class="li-wrap" href="#page=1">31</a></li>
-                    <li page="2"><a class="li-wrap" href="#page=2">32</a></li>
-                    <li page="3"><a class="li-wrap" href="#page=3">33</a></li>                       
-                    <div class="part-lst-more">查看全部（共30P）</div>
+            <div class="part-lst" id="part_list" title="{{video.title}}" total_page="{{sers.length}}">
+                <ul class="lst unselectable ">
+                    <li ng-repeat="s in sers" page="{{s.ser}}" class="{{s.ser}}"><a class="li-wrap" href="?ser={{s.ser}}">{{s.ser}}</a></li>
+                    <div ng-if="more_videos" ng-click="showAll()" class="part-lst-more">查看全部（共{{sers.length}}P）</div>
                 </ul>
             </div>    
             <!-- 评论模块 -->               
             <div class="recommend-comment channel video-list">
                 <ul class="rc-navigator clearfix">
-                    <li class="rc-navigator-li on" role="comment"><span>评论<em class="comment-num" style="display: inline;">23</em></span><div class="line"></div></li>
+                    <li class="rc-navigator-li on" role="comment"><span>评论<em class="comment-num" style="display: inline;" ng-bind="video.c_num"></em></span><div class="line"></div></li>
                 </ul>
 
                 <div class="comment">
@@ -90,71 +125,24 @@
 
                 <div target-role="comment" class="target-role" style="display: block;">
                     <ul class="rc-pannel comment-in">
-
-                        <li class="list">
+  
+                        <li class="list" ng-repeat="cm in comments">
                             <div class="rc-container clearfix">
-                                <a class="rc-pic" href="http://space.bilibili.com/882170">
-                                    <img src="http://i1.hdslb.com/52_52/account/face/882170/f2dc3037/myface.png">
+                                <a class="rc-pic">
+                                    <img src="img/logo.small.png">
                                 </a>
                                 <div class="rc-main">
                                     <div class="rc-head clearfix">
-                                        <a class="rc-name" href="http://space.bilibili.com/882170">
-                                            王薇
-                                        </a>
-                                        <span class="rc-time">
-                                            2015-09-14 17:32
-                                        </span>
+                                        <a>暖星{{cm.local}}手机网友</a>
+                                        <span class="rc-time">{{cm.comtime}}</span>
                                     </div>
-                                    <div class="rc-comment">
-                                        懒蛋蛋好好玩啊！
-                                    </div>
+                                    <div class="rc-comment">{{cm.content}}</div>
                                 </div>
                             </div>
                         </li>
                         
-                        <li class="list">
-                            <div class="rc-container clearfix">
-                                <a class="rc-pic" href="http://space.bilibili.com/1493478">
-                                    <img src="http://i1.hdslb.com/group1/M00/AA/57/oYYBAFaZObGAcWzAAAFirCZ98iU359.gif">
-                                </a>
-                                <div class="rc-main">
-                                    <div class="rc-head clearfix">
-                                        <a class="rc-name" href="http://space.bilibili.com/1493478">
-                                            吸食内脏
-                                        </a>
-                                        <span class="rc-time">
-                                            2015-09-14 15:26
-                                        </span>
-                                    </div>
-                                    <div class="rc-comment">
-                                        楼上是美女！！！！
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        
-                        <li class="list">
-                            <div class="rc-container clearfix">
-                                <a class="rc-pic" href="http://space.bilibili.com/3368962">
-                                    <img src="http://i0.hdslb.com/52_52/account/face/3368962/2c7cee98/myface.png">
-                                </a>
-                                <div class="rc-main">
-                                    <div class="rc-head clearfix">
-                                        <a class="rc-name" href="http://space.bilibili.com/3368962">
-                                            黄轩宇
-                                        </a>
-                                        <span class="rc-time">
-                                            2015-12-02 20:46
-                                        </span>
-                                    </div>
-                                    <div class="rc-comment">
-                                        为什么不玩我！！
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
-                    <div class="com-lst-more">查看更多</div>
+                    <div ng-if="more" id="nextPage" ng-click="getComments()" class="com-lst-more">查看更多</div>
                     </div>
             </div>  
             <!-- 底部 --> 
@@ -163,7 +151,8 @@
                         <a id="back_to_top" href="javascript:void(0)" class="bottom-btn"><i class="icons icons-top"></i>返回顶部</a>
                     </p>
                     <p>上海星惜科技有限公司</p>
-            </footer>            
+            </footer>
+           
         </div>
 	</body>
 </html>
