@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html ng-app="myVideo">
 	<head>
-		<title>新闻视频</title>
+		<title>暖星视频</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <!-- 优先使用 IE 最新版本和 Chrome -->
 		<meta name="renderer" content="webkit"><!-- 360等浏览器使用chrome frame -->
@@ -54,6 +54,28 @@
                 <link type="text/css" href="css/play_box.css" rel="stylesheet">
                 <div class="player-container">
                     <div class="player-box">
+                        <div class="media-box">
+                        </div>
+                        <div class="display d_none">
+<!--                             <div class="play-over-cover voted d_none">
+                                <div class="play-over-btn play-replay-btn">
+                                    <i class="icons icons-replay"></i>
+                                    <div>重新播放</div>
+                                </div>
+                                <div class="play-over-btn play-share-btn">
+                                    <i class="icons icons-share-bg"></i>
+                                    <div>分享</div>
+                                </div>
+                            </div> -->
+                                <div class="play-over-cover vote">
+                                    <div class="vote_title">你希望下期我们视频的主题是:</div>
+                                    <div class="vote_items">
+                                        <div class="vote_item">孤独症儿童训练教程</div>
+                                        <div class="vote_item">孤独症的最新研究情况</div>
+                                        <div class="vote_item">孤独症康复机构介绍</div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -63,7 +85,6 @@
                     <i class="icons icons-share-gray"></i>
                     <span class="-mob-share-open">分享</span>
                     <!--MOB SHARE BEGIN-->
-
                     <div class="-mob-share-ui" style="display: none">
                         <ul class="-mob-share-list">
                             <li class="-mob-share-weibo"><p>新浪微博</p></li>
@@ -79,8 +100,6 @@
                     <div class="-mob-share-ui-bg"></div>
                    
                     <!--MOB SHARE END-->
-
-                        
                 </span>
                 <span class="control-btn btn-addFav" ng-click="zan()">
                     <i class="icons icons-addFav"></i>
@@ -105,9 +124,9 @@
             </div> 
             <!-- 选集块 -->
             <div class="part-lst" id="part_list" title="{{video.title}}" total_page="{{sers.length}}">
-                <ul class="lst unselectable ">
+                <ul class="lst unselectable initialized">
                     <li ng-repeat="s in sers" page="{{s.ser}}" class="{{s.ser}}"><a class="li-wrap" href="?ser={{s.ser}}">{{s.ser}}</a></li>
-                    <div ng-if="more_videos" ng-click="showAll()" class="part-lst-more">查看全部（共{{sers.length}}P）</div>
+                    <!-- <div ng-if="more_videos" ng-click="showAll()" class="part-lst-more">查看全部（共{{sers.length}}P）</div> -->
                 </ul>
             </div>    
             <!-- 评论模块 -->               

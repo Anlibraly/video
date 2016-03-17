@@ -504,14 +504,30 @@ h2, h3 {
   border: none;
   width: 100%;
 }
+/*@media only screen and (min-width: 480px){
 
-.part-lst .lst li:nth-child(n+9) {
+}
+iPhone6P
+@media screen and (min-width: 381px) and (max-width: 479px) {
+
+}
+
+iPhone6
+@media only screen and (min-width: 326px) and (max-width: 380px){
+
+}
+iPhone5
+@media only screen and (max-width: 325px) {
+
+}*/
+
+/*.part-lst .lst li:nth-child(n+8) {
   display: none;
 }
 
-.part-lst .lst.initialized li:nth-child(n+9) {
+.part-lst .lst.initialized li:nth-child(n+8) {
   display: block;
-}
+}*/
 
 /*评论*/
 .channel.video-list {
@@ -790,4 +806,72 @@ footer {
     white-space: nowrap;
     font-size: 0.8rem;
     text-align: left;
+}
+
+/*播放完投票*/
+.vote_title{
+    padding: 3% 0 0 2%;
+    width: 100%;
+    font-size: 18px;
+}
+.vote_items{
+    text-align: center;
+    width: 100%;
+}
+.vote_item{
+    padding: 2% 0;
+    width: 80%;
+    margin: 3% 10% 4% 10%;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+.play-over-cover {
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, .8);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.play-over-cover .play-over-btn {
+    width: 75px;
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -38px;
+}
+.play-over-cover .play-over-btn.play-share-btn, .play-over-cover .play-over-btn.play-next-btn {
+    margin-left: 25px;
+}
+.play-over-cover .play-over-btn {
+    width: 75px;
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -38px;
+}
+.play-over-cover div {
+    color: #fff;
+}/*
+.icons.icons-replay {
+    width: 52px;
+    height: 52px;
+    vertical-align: top;
+    background-position: -67px -132px;
+}
+.icons.icons-share-bg {
+    width: 52px;
+    height: 52px;
+    vertical-align: top;
+    background-position: -67px 1px;
+}*/
+.media-box{
+  width: 100%;
+  height: 100%;
+}
+.d_none{
+  display: none;
 }

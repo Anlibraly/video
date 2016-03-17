@@ -24,9 +24,15 @@ $sceDelegateProvider.resourceUrlWhitelist([
         var param = {"ser":$scope.actid};
         AV.Cloud.run('getVideo', param).then(function(res) {
             $scope.video = res;
-            $(".player-box").html("<video width='100%' height='100%' controls='' name='media' "
+            $(".media-box").html("<video id='media' width='100%' height='100%' controls='' name='media' "
             +"style='display: inline-block;'><source src='"
             +res.v_url+"' type='video/mp4'></video>");
+            var media = document.getElementById("media");
+            media.addEventListener("ended",function(){
+                     $(".display").removeClass("d_none");
+                     showModel('谢谢您的建议');
+            },false);
+
             mobShare.config( {
                 debug: false, // 开启调试，将在浏览器的控制台输出调试信息
                 appkey: '10394e3acfaad', // appkey
@@ -45,13 +51,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
 
         AV.Cloud.run('queryVideos', param).then(function(res) {
             $scope.sers = res.acts;
-            if(res.counts < 9){
-                $scope.more_videos = false;
-            }
-            if($scope.actid>8){
-                $scope.more_videos = false;
-                $(".lst").addClass("initialized");
-            }
+
             $scope.$apply();
             $("."+$scope.actid).addClass("on");
         },function(error) {
@@ -120,7 +120,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
                     console.log(error);
                 });
         };
-
+        createModel();
         $scope.getComments();
  });
 function GetQueryString(name) 
