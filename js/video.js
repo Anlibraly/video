@@ -18,6 +18,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
         $scope.local = "";
         $scope.page = 0;
         $scope.more = true;
+        $scope.votes = null;
         $scope.more_videos = true;
         $scope.video = {"v_url":""};
         $scope.sers = {}; 
@@ -48,16 +49,33 @@ $sceDelegateProvider.resourceUrlWhitelist([
             showModel('系统错误');
             console.log(error);
         });        
+        param = {};
+        AV.Cloud.run('queryVote', param).then(function(res) {
+            $scope.votes = res.acts;
+            $scope.$apply();
+             $(".vote_item").bind("click",function(){
+                param = {"actid":$(this).attr("data-vid")};
+                AV.Cloud.run('vote', param).then(function(res) {
+                    $(".display").addClass("d_none");
+                },function(error) {
+                    showModel('系统错误');
+                    console.log(error);
+                }); 
+            });            
+        },function(error) {
+            showModel('系统错误');
+            console.log(error);
+        });     
 
         AV.Cloud.run('queryVideos', param).then(function(res) {
             $scope.sers = res.acts;
-
             $scope.$apply();
             $("."+$scope.actid).addClass("on");
         },function(error) {
             showModel('系统错误');
             console.log(error);
-        });     
+        });  
+
 
         $scope.zan = function(){
             param = {"actid":$scope.actid};
@@ -119,7 +137,8 @@ $sceDelegateProvider.resourceUrlWhitelist([
                     $scope.more = false;
                     console.log(error);
                 });
-        };
+        };              
+
         createModel();
         $scope.getComments();
  });

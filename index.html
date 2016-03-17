@@ -57,22 +57,10 @@
                         <div class="media-box">
                         </div>
                         <div class="display d_none">
-<!--                             <div class="play-over-cover voted d_none">
-                                <div class="play-over-btn play-replay-btn">
-                                    <i class="icons icons-replay"></i>
-                                    <div>重新播放</div>
-                                </div>
-                                <div class="play-over-btn play-share-btn">
-                                    <i class="icons icons-share-bg"></i>
-                                    <div>分享</div>
-                                </div>
-                            </div> -->
                                 <div class="play-over-cover vote">
                                     <div class="vote_title">你希望下期我们视频的主题是:</div>
                                     <div class="vote_items">
-                                        <div class="vote_item">孤独症儿童训练教程</div>
-                                        <div class="vote_item">孤独症的最新研究情况</div>
-                                        <div class="vote_item">孤独症康复机构介绍</div>
+                                        <div ng-repeat="vt in votes" class="vote_item" data-vid="{{vt.v_id}}">{{vt.content}}</div>
                                     </div>
                                 </div>
                             </div>
