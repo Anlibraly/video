@@ -127,7 +127,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
                         }
                         $scope.page++;
                     }else{
-                        showModel('没有更多评论了');
+                        //showModel('没有更多评论了');
                         $scope.more = false;
                     }
                     $scope.$apply();
