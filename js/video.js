@@ -45,7 +45,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
             } );   
             $scope.$apply();
         },function(error) {
-            showModel('系统错误');
+            //showModel('系统错误');
             console.log(error);
         });        
         param = {};
@@ -57,12 +57,12 @@ $sceDelegateProvider.resourceUrlWhitelist([
                 AV.Cloud.run('vote', param).then(function(res) {
                     $(".display").addClass("d_none");
                 },function(error) {
-                    showModel('系统错误');
+                    //showModel('系统错误');
                     console.log(error);
                 }); 
             });            
         },function(error) {
-            showModel('系统错误');
+            //showModel('系统错误');
             console.log(error);
         });     
 
@@ -71,7 +71,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
             $scope.$apply();
             $("."+$scope.actid).addClass("on");
         },function(error) {
-            showModel('系统错误');
+            //showModel('系统错误');
             console.log(error);
         });  
 
@@ -83,7 +83,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
                 $(".icons-addFav").addClass("on");
                 $scope.$apply();
             },function(error) {
-                showModel('系统错误');
+                //showModel('系统错误');
                 console.log(error);
             });           
         };
@@ -106,10 +106,11 @@ $sceDelegateProvider.resourceUrlWhitelist([
                     $scope.comments = a.concat($scope.comments);
                     console.log($scope.comments);
                     $scope.cmt_content = "";
-                    showModel('评论成功');
+                    $scope.video.c_num++;
+                    //showModel('评论成功');
                     $scope.$apply();
                 },function(error) {
-                    showModel('系统错误');
+                    //showModel('系统错误');
                     console.log(error);
                 });
         };
@@ -132,7 +133,7 @@ $sceDelegateProvider.resourceUrlWhitelist([
                     }
                     $scope.$apply();
                 },function(error) {
-                    showModel('系统错误');
+                    //showModel('系统错误');
                     $scope.more = false;
                     console.log(error);
                 });

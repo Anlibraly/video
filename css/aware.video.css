@@ -78,7 +78,15 @@ h2, h3 {
   overflow: hidden;
   padding-right: 0.5rem;
 }
-
+.nav-bar h1{
+    font-size: 17px;
+    text-align: center;
+    color: #343434;
+    border-bottom: 1px solid #d2d2d2;
+    margin: 0;
+    padding: 0;
+    margin-right: 40px;
+}
 .logo {
   background: url(../img/logo.small.png) center no-repeat;
 }
@@ -347,7 +355,7 @@ h2, h3 {
 
 .video-info .video-title {
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 600;
   position: relative;
   text-align: left;
   margin: 6px 0;

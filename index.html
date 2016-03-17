@@ -50,6 +50,7 @@
         <!-- 头部 -->
         <nav class="nav-bar">
             <a href="./index.html" class="logo"></a>
+            <h1 ng-bind="video.title"></h1>
         </nav>
         <div class="wrapper">
             <!-- 播放器 -->
@@ -102,13 +103,13 @@
             <div class="video-info clearfix auto">
                 <div class="video-info-detail">
                     <div class="explore">
-                        <h1 class="video-title" title="{{video.title}}">{{video.title}}</h1>
-                        <div class="video-desc">{{video.desc}}</div>
+                        <h1 class="video-title" title="{{video.title}}" ng-bind="video.title"></h1>
+                        <div class="video-desc" ng-bind="video.desc"></div>
                     </div>   
                     <ul class="ct clearfix">
-                        <li>播放：<span id="dianji">{{video.view_num}}</span></li>
-                        <li>点赞：<span id="stow_count">{{video.zan_num}}</span></li>
-                        <li><span class="up-time">{{video.uptime}}</span></li>
+                        <li>播放：<span id="dianji" ng-bind="video.view_num"></span></li>
+                        <li>点赞：<span id="stow_count" ng-bind="video.zan_num"></span></li>
+                        <li><span class="up-time" ng-bind="video.uptime"></span></li>
                     </ul>
                 </div>
                 <div class="video-info-span"><i class="icons icons-span downs"></i></div>
