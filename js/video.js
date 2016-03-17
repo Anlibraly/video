@@ -31,7 +31,6 @@ $sceDelegateProvider.resourceUrlWhitelist([
             var media = document.getElementById("media");
             media.addEventListener("ended",function(){
                      $(".display").removeClass("d_none");
-                     showModel('谢谢您的建议');
             },false);
 
             mobShare.config( {
