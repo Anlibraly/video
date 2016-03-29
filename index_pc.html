@@ -18,23 +18,9 @@
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script src="js/angular.min.js"></script>
         <script src="js/av-mini.js"></script>
-        <script src="js/video.js"></script>
+        <script src="js/video_pc.js"></script>
         <script type="text/javascript">
             $(function(){
-                var u = 0;
-                $(".explore").hide();
-                $(".video-info-span").click(function(){
-                    $(".explore").slideToggle("slow");
-                    if(u==0){
-                        $(".icons-span").removeClass("downs");
-                        $(".icons-span").addClass("ups");
-                        u = 1;
-                    }else{
-                        $(".icons-span").removeClass("ups");
-                        $(".icons-span").addClass("downs");
-                        u = 0;
-                    }
-                });
                 $("#back_to_top").click(function(){
                     $("html,body").animate({scrollTop:0}, 500);
                 });        
@@ -42,7 +28,7 @@
         </script>          
         <link rel="icon" type="image/vnd.microsoft.icon" href="img/logo.middle.png">
         <link href="css/normalize.css" rel="stylesheet">
-        <link href="css/aware.video.css" rel="stylesheet">
+        <link href="css/aware.pc.video.css" rel="stylesheet">
         <link href="css/comment.css" rel="stylesheet">
 	</head>
 
@@ -70,12 +56,12 @@
                             </div>
                     </div>
                 </div>
-            </div>
+            </div>        
             <!-- 分享收藏控件 -->
             <div id="video-opt" style="text-align: right;">
-                <span class="control-btn btn-share">
+                <span class="control-btn btn-share -mob-share-open">
                     <i class="icons icons-share-gray"></i>
-                    <span class="-mob-share-open">分享</span>
+                    <span>分享</span>
                     <!--MOB SHARE BEGIN-->
                     <div class="-mob-share-ui" style="display: none">
                         <ul class="-mob-share-list">
@@ -112,7 +98,6 @@
                         <li><span class="up-time" ng-bind="video.uptime"></span></li>
                     </ul>
                 </div>
-                <div class="video-info-span"><i class="icons icons-span downs"></i></div>
             </div> 
             <!-- 选集块 -->
             <div class="part-lst" id="part_list" title="{{video.title}}" total_page="{{sers.length}}">
@@ -120,7 +105,7 @@
                     <li ng-repeat="s in sers" page="{{s.ser}}" class="{{s.ser}}"><a class="li-wrap" href="?ser={{s.ser}}">{{s.ser}}</a></li>
                     <!-- <div ng-if="more_videos" ng-click="showAll()" class="part-lst-more">查看全部（共{{sers.length}}P）</div> -->
                 </ul>
-            </div>    
+            </div>        
             <!-- 评论模块 -->               
             <div class="recommend-comment channel video-list">
                 <ul class="rc-navigator clearfix">
@@ -145,9 +130,9 @@
                                 <div class="rc-main">
                                     <div class="rc-head clearfix">
                                         <a>{{cm.local}}</a>
-                                        <span class="rc-time">{{cm.comtime}}</span>
                                     </div>
                                     <div class="rc-comment">{{cm.content}}</div>
+                                    <span class="rc-time">{{cm.comtime}}</span>
                                 </div>
                             </div>
                         </li>
